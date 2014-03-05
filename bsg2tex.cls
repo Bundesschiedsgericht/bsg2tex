@@ -9,8 +9,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bsg2tex}[2013/07/09 v0.95 Schiedsgerichtsbeschluesse und -urteile]
-\newcommand\bsgtotexversion{v0.95}
+\ProvidesClass{bsg2tex}[2013/08/08 v0.96 Schiedsgerichtsbeschluesse und -urteile]
+\newcommand\bsgtotexversion{v0.96}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -58,6 +58,13 @@
 \rule[0.25mm]{3.236mm}{2mm}~\textbf{#2}~\rule[0.25mm]{3.236mm}{2mm}%
 } }{#1}%
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Zitatmakro
+%
+
+\newcommand{\Zitat}[1]{\textit{{\glqq}#1{\grqq}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

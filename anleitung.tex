@@ -1,5 +1,5 @@
 %
-%   Anleitung für bsg2tex, Stand 04. Juli 2013
+%   Anleitung für bsg2tex, Stand 08. August 2013
 %   CC-BY Markus Gerstel
 %
 
@@ -51,7 +51,7 @@ Umlaute gehen entweder als ä, ö, ü, Ä, Ö, Ü, ß in der .tex-Datei mit richtigem C
 Aufzupassen ist bei \LaTeX-Steuerzeichen, wie zum Beispiel beim Backslash (\texttt{{\textbackslash}textbackslash}) oder der geschweiften Klammer (\texttt{\textbackslash\{}) sowie dem Prozentzeichen\footnote{Das Prozentzeichen ist besonders gefährlich, da es den Rest der Zeile als Kommentar interpretiert und verwirft. Und da gibt es dann keine Fehlermeldung.} (\textbackslash\%). 
 Doppelte Anführungszeichen sollten ebenfalls nicht verwendet werden. Einerseits weil sie z.B. in Pads gerne als non-ASCII-Sonderzeichen auftauchen, andererseits weil sie auch so \LaTeX durcheinander bringen können.
 Stattdessen sollte an der jeweiligen Stelle \texttt{\{{\textbackslash}glqq\}} ({\glqq}) bzw. \texttt{\{{\textbackslash}grqq\}} ({\grqq}) eingefügt werden:
-{\glqq}Ein wörtliches Zitat.{\grqq}
+{\glqq}Ein wörtliches Zitat.{\grqq} Soll der Zitattext auch noch kursiv dargestellt werden, so bietet sich das \texttt{{\textbackslash}Zitat\{...\}}-Makro an (\Zitat{einfach lesbarer}).
 
 % Dies ist ein Kommentar
 %  \  -> \textbackslash
@@ -90,7 +90,7 @@ Beispielsweise §~11 Abs.~22 Satz~33 Nr~44 Bundessatzung oder §~1 Abs.~1 SGO (Ja,
 
 In der öffentlichen Fassung des Urteils-/Beschlusstextes können Bereiche komplett ausgeblendet werden (\texttt{{\textbackslash}Anonym\{...\}}), diese werden dann \Anonym{durch einen formschönen orangenen Balken ersetzt}.
 
-Auch eine Pseudonymisierung (\texttt{{\textbackslash}Pseudonym\{...\}\{...\}}) ist möglich, um beispielsweise nicht benannte Personen voneinander unterscheidbar zu machen.
+Auch eine Pseudonymisierung (\texttt{{\textbackslash}Pseudonym\{voller Name\}\{Kürzel\}}) ist möglich, um beispielsweise nicht benannte Personen voneinander unterscheidbar zu machen.
 Dann werden beispielsweise Namen, wie \Pseudonym{Heinz-Rüdiger}{A} durch \Pseudonym{einen formschönen orangenen Balken mit Inschrift}{A} ersetzt.
 Es ist zu empfehlen das Pseudonym \textbf{nicht} aus den Initialien der Person, sondern z.B. aus ihrer Rolle im Verfahren zu basteln: Der Antragsteller \Pseudonym{A oder AS}{AS}, Antragsgegner G, Zeuge Z, Mitglied M, Protokollant P, ...
 
