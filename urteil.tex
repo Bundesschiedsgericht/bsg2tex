@@ -1,0 +1,130 @@
+%
+%   Beispieldokument für bsg2tex, Stand 02. Juli 2013
+%   CC-BY Markus Gerstel
+%
+
+%\documentclass{bsg2tex}
+%\documentclass[anonym]{bsg2tex}
+%\documentclass[print]{bsg2tex}
+%\documentclass[invprint]{bsg2tex}
+
+\include{bundesschiedsgericht}
+\newcommand{\Aktenzeichen}{BSG 2013-04-31}
+\newcommand{\Datum}       {31.04.2013}
+\newcommand{\Titel}       {Urteil zu {\Aktenzeichen}}
+
+\begin{document}
+
+In dem Verfahren \Aktenzeichen\\
+
+1. \Anonym{Marianne Herpsen, Derpstr. 3, 0815 Umseck,}\\[0.1em]
+2. \Anonym{Heinz-Rüdiger Herpsen, Derpstr. 3, 0815 Umseck,}\\[0.1em]
+vertreten durch \Anonym{Dr. Rodriguez Rechtsstaat, Anwaltsstr. 6, 31337 Schaffhausen, art20@example.com,}\\[0.1em]
+--- Antragsteller und Berufungsgegner ---\\
+
+gegen\\
+
+Piratenpartei, Landesverband Salzburg, \Anonym{Schnitzelstr. 4-8, 04711 Baumhaus,}\\[0.1em]
+vertreten durch \Anonym{Maria Musterfrau, LLM, Seppelgasse 12, 04711 Baumhaus, art21@example.com,}\\[0.1em]
+--- Antragsgegner und Berufungsführer ---\\
+
+wegen Anfechtung der Gründungsversammlung der Piratenpartei Deutschland\\
+
+hat das Bundesschiedsgericht aufgrund der mündlichen Verhandlung vom 07.06.2013 durch die Richter Hens, Dempf und Hens-Dempf in der Sitzung am {\Datum} entschieden:
+
+\textbf{1. Das Urteil des Landesschiedsgerichts Salzburg vom 1. April 2013, Az.: LSG-SB-03/13 wird aufgehoben.}\\
+\textbf{2. Der Antrag auf Feststellung der Unwirksamkeit der Gründung der Piratenpartei Deutschland wird zurückgewiesen.}\\
+
+\section*{Sachverhalt}
+
+Willkommen in der \LaTeX-Vorlage für Schiedsgerichtsurteile (bsg2tex).
+
+\subsection{\LaTeX}
+Du brauchst eine installierte \LaTeX-Distribution. Für Windows, bspw. MiKTEX\footnote{\url{http://miktex.org/}}. Für Linux mache ich dir keine Empfehlungen, da du garantiert schon eine Lieblingsdistri hast, und daher jede Empfehlung nur falsch sein kann. Zum Erstellen der Ausgabedateien wird dann \texttt{pdflatex} empfohlen.
+
+\subsection{documentclass}
+Jeder Beschluss, jedes Urteil ist eine eigene .tex-Datei. Sie beginnt mit der Zeile\\
+ \texttt{{\textbackslash}documentclass\{bsg2tex\}}\\
+mit eventuell einer der drei Optionen anonym, print oder invprint.
+Eine genauere Beschreibung der Optionen findest du in der Datei \texttt{bsg2tex.cls}.
+
+Alternativ lässt du diese Zeile weg, und verwendest ein Script, wie beispielsweise (für Windows)\\
+\texttt{3compile.cmd}, welches dir direkt alle möglichen Ausgabedokumente produziert (Volltextversion, Gekürzte Fassung, Druckfassung).
+Unter Windows wird das Script durch \texttt{3compile urteil.tex} aufgerufen, oder durch Ziehen der .tex-Datei auf das 3compile-Script\footnote{Geht nicht wenn MiKTEX als portable Installation verwendet wird, weil die Pfade fehlen}. Der Name der .tex-Datei darf keine Leerzeichen enthalten.
+
+\subsection{Anpassung an das Gericht}
+Mitgeliefert ist die Datei \texttt{bundesschiedsgericht.tex}, welche die Seitenelemente oben rechts und unten befüllt. Kopiere diese Datei, z.B. nach \texttt{landesschiedsgericht.tex} und passe sie anhand der Kommentare für euer jeweiliges Schiedsgericht an.
+Die zweite Zeile in der Urteils-/Beschluss-.tex-Datei lautet dann\\
+ \texttt{{\textbackslash}include\{bundesschiedsgericht\}}\\
+(oder eben landesschiedsgericht o.ä., aber jedenfalls ohne den '.tex'-Anhang).
+
+\subsection{Anpassung an den Fall}
+Es folgen drei Makrodefinitionen, die das Aktenzeichen (\Aktenzeichen), das Beschlussdatum (\Datum) und die Überschrift festlegen.
+Diese drei Makros können dann, wie eben demonstriert, auch im Beschlusstext wiederverwendet werden.
+Dann kommt ein \texttt{{\textbackslash}begin\{document\}} und es geht los.
+
+\subsection{Zeichen und Textauszeichnungen}
+Normaler Text wird einfach so runtergeschrieben. \textbf{Fetter Text} und \textit{kursiver Text} sind natürlich genauso möglich wie \textbf{\textit{fetter und kursiver Text}}.
+
+Umlaute gehen entweder als ä, ö, ü, Ä, Ö, Ü, ß in der .tex-Datei mit richtigem Characterset, oder alternativ mittels \"a, \"o, \"u, \"A, \"O, \"U und \ss{}.
+Aufzupassen ist bei \LaTeX-Steuerzeichen, wie zum Beispiel beim Backslash (\texttt{{\textbackslash}textbackslash}) oder der geschweiften Klammer (\texttt{\textbackslash\{}) sowie dem Prozentzeichen\footnote{Das Prozentzeichen ist besonders gefährlich, da es den Rest der Zeile als Kommentar interpretiert und verwirft. Und da gibt es dann keine Fehlermeldung.} (\textbackslash\%). 
+Doppelte Anführungszeichen sollten ebenfalls nicht verwendet werden. Einerseits weil sie z.B. in Pads gerne als non-ASCII-Sonderzeichen auftauchen, andererseits weil sie auch so \LaTeX durcheinander bringen können.
+Stattdessen sollte an der jeweiligen Stelle \texttt{\{{\textbackslash}glqq\}} ({\glqq}) bzw. \texttt{\{{\textbackslash}grqq\}} ({\grqq}) eingefügt werden:
+{\glqq}Ein wörtliches Zitat.{\grqq}
+
+% Dies ist ein Kommentar
+%  \  -> \textbackslash
+%  {  -> \{
+%  %  -> \%
+% Anführungszeichen Anfang: {\glqq}
+% Anführungszeichen Ende: {\grqq}
+
+Längere Gedankenstriche erhält man mit -- aufeinander folgenden -- Minuszeichen (1-2, 2--3, 3---4).
+
+Doppelleerzeichen, die    zum Beispiel  beim   Kopieren aus Pads entstehen,   sind    unproblematisch.
+
+
+\subsection{Absatzformatierung}
+
+Für einen neuen Absatz einfach mindestens eine Leerzeile zwischen zwei Textzeilen lassen.
+Textzeilen, die direkt aufeinander folgen, werden gemeinsam als Fließtext verarbeitet.
+
+\begin{quotation}\noindent\textit{
+Für einen Auszug aus einer Fremdquelle oder einem längeren Zitat bietet sich eine Quotation-Umgebung an.
+Gegebenenfalls mit kursiver Textauszeichnung.
+Aktuell werden in der Quotation-Umgebung noch standardmäßig die \LaTeX-Zeileneinzüge gemacht, was sich jedoch mit {\textbackslash}noindent verhindern lässt.
+In einer Quotation-Umgebung kann ein neuer Absatz nicht durch zwei Leerzeilen begonnen werden, hier muss eine manuelle Zeilentrennung mit einem Doppel-Backslash (\textbackslash\textbackslash) durchgeführt werden.\\
+Dort kann auch noch ein Abstand angegeben werden ({\textbackslash}{\textbackslash}[1.0em]).\\[1.0em]
+Das ergibt dann eine größere Lücke.
+}\end{quotation}
+
+Das bietet sich auch an, wenn man im normalen Fließtext eine neue Zeile beginnen will.\\
+Aber keinen neuen Absatz.
+
+Manchmal hat {\LaTeX} Schwierigkeiten einen richtigen Umbruchpunkt zu finden um einen sauberen Textfluß hinzubekommen. Bei langen Wörtern oder auch Daten (01.01.2013, etc.) kann das schnell zu Problemen führen. In diesen Fällen kann man {\LaTeX} eine Umbruchempfehlung mit einem doppelten doppelten Anführungszeichen geben (01.""01.""2013). Diese Umbruchsempfehlungen sind natürlich im resultierenden PDF nicht zu sehen.
+
+\subsection{Paragraphenreiterei}
+Um Umbrüche an ungünstigen Stellen zu vermeiden (§\\ 1 JuristLesbarkG) sollten geschütze Leerzeichen (\textasciitilde) verwendet werden.
+Beispielsweise §~11 Abs.~22 Satz~33 Nr~44 Bundessatzung oder §~1 Abs.~1 SGO (Ja, SGO, nicht BSchGO oder BSGO :) ), und auch 10~Minuten und dergleichen.
+
+In der öffentlichen Fassung des Urteils-/Beschlusstextes können Bereiche komplett ausgeblendet werden (\texttt{{\textbackslash}Anonym\{...\}}), diese werden dann \Anonym{durch einen formschönen orangenen Balken ersetzt}.
+
+Auch eine Pseudonymisierung (\texttt{{\textbackslash}Pseudonym\{...\}\{...\}}) ist möglich, um beispielsweise nicht benannte Personen voneinander unterscheidbar zu machen.
+Dann werden beispielsweise Namen, wie \Pseudonym{Heinz-Rüdiger}{A} durch \Pseudonym{einen formschönen orangenen Balken mit Inschrift}{A} ersetzt.
+Es ist zu empfehlen das Pseudonym \textbf{nicht} aus den Initialien der Person, sondern z.B. aus ihrer Rolle im Verfahren zu basteln: Der Antragsteller \Pseudonym{A oder AS}{AS}, Antragsgegner G, Zeuge Z, Mitglied M, Protokollant P, ...
+
+\subsection{Gliederung}
+Es werden die Gliederungsebenen section, subsection und subsubsection unterstützt. Diese können mit oder auch ohne Argument verwendet werden:
+
+\subsubsection{}
+Mit einem Sternchen wird die Ziffer/der Buchstabe nicht ausgegeben und auch nicht weitergezählt. Damit kann man dann sowas machen wie z.B.
+
+\section*{Entscheidungsgründe}
+(Wäre da kein Sternchen, dann würde die Nummerierung der untergeordneten Gliederungspunkte wieder bei 1. bzw. a. anfangen.)
+
+
+\subsection{URLs}
+
+Hierfür gibt es das {\textbackslash}url-Kommando \url{http://www.verklagmichdoch.de}, welches für besseren Lesefluß empfohlenerweise in Fußnoten\footnote{\url{http://www.verklagmichdoch.de}} eingesetzt werden kann.
+
+\end{document}
