@@ -34,10 +34,11 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 
 %
 % Der eigentliche Footer
-% Eine 6-spaltige Tabelle (Anzahl 'c's in der Zeile mit 'tabular').
-% In der einzeiligen Tabelle wird dann jede Spalte grundsätzlich auf die gleiche Breite (28mm) forciert.
+% Eine 8-spaltige Tabelle (Anzahl 'c's in der Zeile mit 'tabular').
+% In der einzeiligen Tabelle wird dann jede Spalte grundsätzlich auf eine spezifische Breite (XXmm) forciert.
 % Für ein 7-köpfiges Gremium werden 26mm empfohlen, wobei längere Namen oder Titel ausnahmsweise
 % breitere Spalten notwendig machen können ('Vorsitzender~Richter' bspw. 26.5mm).
+% Für ein 6-köpfiges oder kleineres Gremium werden 28mm empfohlen.
 % 
 % Alle \parbox-Zeilen ausser der letzten müssen mit &% enden, und es sollten in dem ganzen Makro
 % keine überflüssigen Leerstellen oder Returns vorkommen.
@@ -48,12 +49,14 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 \newcommand{\RichterTabelle}{%
 \setlength{\tabcolsep}{0mm}%
 \centering\textcolor{white}{%
-\large\begin{tabular}{cccccc}%
-\parbox[t]{28mm}{\centering Benjamin\\Siggel\\[0.2em]}&%
-\parbox[t]{28mm}{\centering Claudia\\Schmidt\\[0.2em]}&%
-\parbox[t]{28mm}{\centering Markus\\Gerstel\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
-\parbox[t]{28mm}{\centering Joachim\\Bokor\\[0.2em]}&%
-\parbox[t]{28mm}{\centering Markus\\Kompa\\[0.2em]}&%
-\parbox[t]{29mm}{\centering Georg\\von Boroviczeny\\[0.2em]\footnotesize{Ersatzrichter}}%
+\large\begin{tabular}{cccccccc}%
+\parbox[t]{25mm}{\centering Benjamin\\Siggel\\[0.2em]}&%
+\parbox[t]{23mm}{\centering Claudia\\Schmidt\\[0.2em]}&%
+\parbox[t]{23mm}{\centering Daniela\\Berger\\[0.2em]}&%
+\parbox[t]{25mm}{\centering Florian\\Zumkeller-Quast\\[0.2em]}&%
+\parbox[t]{25mm}{\centering Georg\\von Boroviczeny\\[0.2em]}%
+\parbox[t]{25mm}{\centering Harald\\Kibbat\\[0.2em]\footnotesize{Ersatzrichter}}%
+\parbox[t]{25mm}{\centering Lara\\Lämke\\[0.2em]\footnotesize{Ersatzrichter}}&%
+\parbox[t]{26.5mm}{\centering Markus\\Gerstel\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
 \end{tabular}}%
 }

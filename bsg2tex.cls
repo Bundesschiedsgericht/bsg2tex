@@ -9,8 +9,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bsg2tex}[2013/08/08 v0.96 Schiedsgerichtsbeschluesse und -urteile]
-\newcommand\bsgtotexversion{v0.96}
+\ProvidesClass{bsg2tex}[2013/12/15 v0.97 Schiedsgerichtsbeschluesse und -urteile]
+\newcommand\bsgtotexversion{v0.97}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -42,7 +42,6 @@
 
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman]{babel}
-
 \setlength{\unitlength}{1mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,6 +64,17 @@
 %
 
 \newcommand{\Zitat}[1]{\textit{{\glqq}#1{\grqq}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Verschlusssachemakro:
+%
+%  \Verschlusssache{Text} bricht in der anonymisierten Fassung
+%  das Dokument mit dem Kommentar 'Text' ab.
+
+\newcommand{\Verschlusssache}[1]{%
+\ifbool{bsganonym}{\vspace{10mm}\begin{center}\textit{#1}\end{center}\end{document}}{}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -114,8 +124,8 @@
 %  Keine Hurenkinder und Schusterjungen
 %
 
-\clubpenalty=5000 
-\widowpenalty=5000 
+\clubpenalty=10000
+\widowpenalty=10000
 \displaywidowpenalty=1000
 
 %
