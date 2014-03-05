@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# bsg3compile, Version vom 1. März 2014
+# CC-BY Florian Zumkeller-Quast
+# Angelehnt an 3compile.cmd, CC-BY Markus Gerstel
+#
+# Aufruf: bsg3compile.sh "/home/.../Pfad/zur/La.tex"
+# Drag&amp;Drop sollte ebenfalls funktionieren in den meisten DE
+#
+# Es werden 3 PDF-Dateien erstellt:
+#   -anonym.pdf    Gekürzte/Anonymisierte Fassung
+#   -print.pdf     Druckfassung für Briefpapier
+#   -volltext.pdf  Ungekürzte Fassung für Verfahrensbeteiligte
+
+# Da Dateien nicht überschrieben werden können, wenn sie offen sind, wird
+# wärend dem Bau der PDF-Dateien von der Verwendung von z.B. Acrobat Reader
+# abgeraten.
+# Das Script läuft aber wunderbar zusammen mit z.B. SumatraPDF. Das zeigt
+# dann auch quasi live Änderungen an, während im Hintergrund LaTeX rumlatext.
+
+FILE=$1;
+for MODE in "volltext" "anonym" "print";
+do
+        TEXPATH=${FILE/%.tex/-${MODE}.tex}
+        if [ ! -e "${TEXPATH}" ]; then
+                echo "\\documentclass[${MODE}]{bsg2tex}" &gt; $TEXPATH
+                echo "\\input{${FILE}}" &gt;&gt; $TEXPATH
+        fi;
+
+
+        AUXFILE="${FILE/%.tex/-${MODE}.aux}"
+        # pdflatex jeweils solange iterieren bis .aux-Datei konvergiert oder Fehler auftreten
+        until diff "${AUXFILE}" "${AUXFILE/%.aux/.aux.sec}" 2&gt;&amp;1 &gt; /dev/null; 
+        do
+                if [ -e "${AUXFILE}" ]; then
+                        cp -a "${AUXFILE}" "${AUXFILE/%.aux/.aux.sec}"
+                fi;
+                pdflatex "${TEXPATH}"
+        done;
+        rm "${FILE/%.tex/-${MODE}.aux.sec}"
+        rm "${FILE/%.tex/-${MODE}.log}"
+        rm "${FILE/%.tex/-${MODE}.tex}"
+        rm "${FILE/%.tex/-${MODE}.out}"
+done;
