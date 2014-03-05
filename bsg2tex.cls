@@ -9,8 +9,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bsg2tex}[2013/07/04 v0.94 Schiedsgerichtsbeschluesse und -urteile]
-\newcommand\bsgtotexversion{v0.94}
+\ProvidesClass{bsg2tex}[2013/07/09 v0.95 Schiedsgerichtsbeschluesse und -urteile]
+\newcommand\bsgtotexversion{v0.95}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -43,8 +43,6 @@
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman]{babel}
 
-\usepackage{xspace}
-
 \setlength{\unitlength}{1mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,13 +50,13 @@
 %  Anonymisierfunktion
 
 \newcommand{\Anonym}[1]{%
-\ifbool{bsganonym}{\xspace\textcolor{piraten}{\rule[0.25mm]{6.472mm}{2mm}}\xspace}{#1}%
+\ifbool{bsganonym}{ \textcolor{piraten}{\rule[0.25mm]{6.472mm}{2mm}} }{#1}%
 }
 
 \newcommand{\Pseudonym}[2]{%
-\ifbool{bsganonym}{\textcolor{piraten}{%
+\ifbool{bsganonym}{ \textcolor{piraten}{%
 \rule[0.25mm]{3.236mm}{2mm}~\textbf{#2}~\rule[0.25mm]{3.236mm}{2mm}%
-}}{#1}%
+} }{#1}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,9 +107,9 @@
 %  Keine Hurenkinder und Schusterjungen
 %
 
-\clubpenalty = 1000 
-\widowpenalty = 1000 
-\displaywidowpenalty = 1000
+\clubpenalty=5000 
+\widowpenalty=5000 
+\displaywidowpenalty=1000
 
 %
 %  Gliederung

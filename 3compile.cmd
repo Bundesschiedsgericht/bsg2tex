@@ -1,9 +1,9 @@
 @echo off
 
-rem 3compile, Version vom 02. Juli 2013
+rem 3compile, Version vom 09. Juli 2013
 rem CC-BY Markus Gerstel
 
-rem Aufruf: 3compile.cmd "C:\Dokumente und Einstellungen\...\urteil 2013-02-12.tex"
+rem Aufruf: 3compile.cmd "C:\Dokumente und Einstellungen\...\bsg-2013-02-12.tex"
 rem Oder: Drag&Drop der .tex-Datei auf 3compile.cmd
 
 rem Es werden 3 PDF-Dateien erstellt:
@@ -42,6 +42,7 @@ if ERRORLEVEL 1 goto vtprogress
 del "%~d1%~p1%~n1-volltext.aux.sec"
 del "%~d1%~p1%~n1-volltext.log"
 del "%~d1%~p1%~n1-volltext.tex"
+del "%~d1%~p1%~n1-volltext.out"
 
 echo.>"%~d1%~p1%~n1-anonym.aux.sec"
 :anprogress
@@ -53,6 +54,7 @@ if ERRORLEVEL 1 goto anprogress
 del "%~d1%~p1%~n1-anonym.aux.sec"
 del "%~d1%~p1%~n1-anonym.log"
 del "%~d1%~p1%~n1-anonym.tex"
+del "%~d1%~p1%~n1-anonym.out"
 
 echo.>"%~d1%~p1%~n1-print.aux.sec"
 :prprogress
@@ -64,6 +66,7 @@ if ERRORLEVEL 1 goto prprogress
 del "%~d1%~p1%~n1-print.aux.sec"
 del "%~d1%~p1%~n1-print.log"
 del "%~d1%~p1%~n1-print.tex"
+del "%~d1%~p1%~n1-print.out"
 
 goto end
 :endp
