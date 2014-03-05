@@ -1,41 +1,22 @@
 %
-%   Beispieldokument für bsg2tex, Stand 02. Juli 2013
+%   Anleitung für bsg2tex, Stand 04. Juli 2013
 %   CC-BY Markus Gerstel
 %
 
+% Wenn nicht das 3compile-Script (o.ä.) genutzt wird, muss
+% eine der folgenden documentclass-Zeilen benutzt werden:
+%
 %\documentclass{bsg2tex}
 %\documentclass[anonym]{bsg2tex}
 %\documentclass[print]{bsg2tex}
 %\documentclass[invprint]{bsg2tex}
 
 \include{bundesschiedsgericht}
-\newcommand{\Aktenzeichen}{BSG 2013-04-31}
-\newcommand{\Datum}       {31.04.2013}
-\newcommand{\Titel}       {Urteil zu {\Aktenzeichen}}
+\newcommand{\Aktenzeichen}{BSG2Tex}
+\newcommand{\Datum}       {04.07.2013}
+\newcommand{\Titel}       {{\Aktenzeichen}}
 
 \begin{document}
-
-In dem Verfahren \Aktenzeichen\\
-
-1. \Anonym{Marianne Herpsen, Derpstr. 3, 0815 Umseck,}\\[0.1em]
-2. \Anonym{Heinz-Rüdiger Herpsen, Derpstr. 3, 0815 Umseck,}\\[0.1em]
-vertreten durch \Anonym{Dr. Rodriguez Rechtsstaat, Anwaltsstr. 6, 31337 Schaffhausen, art20@example.com,}\\[0.1em]
---- Antragsteller und Berufungsgegner ---\\
-
-gegen\\
-
-Piratenpartei, Landesverband Salzburg, \Anonym{Schnitzelstr. 4-8, 04711 Baumhaus,}\\[0.1em]
-vertreten durch \Anonym{Maria Musterfrau, LLM, Seppelgasse 12, 04711 Baumhaus, art21@example.com,}\\[0.1em]
---- Antragsgegner und Berufungsführer ---\\
-
-wegen Anfechtung der Gründungsversammlung der Piratenpartei Deutschland\\
-
-hat das Bundesschiedsgericht aufgrund der mündlichen Verhandlung vom 07.06.2013 durch die Richter Hens, Dempf und Hens-Dempf in der Sitzung am {\Datum} entschieden:
-
-\textbf{1. Das Urteil des Landesschiedsgerichts Salzburg vom 1. April 2013, Az.: LSG-SB-03/13 wird aufgehoben.}\\
-\textbf{2. Der Antrag auf Feststellung der Unwirksamkeit der Gründung der Piratenpartei Deutschland wird zurückgewiesen.}\\
-
-\section*{Sachverhalt}
 
 Willkommen in der \LaTeX-Vorlage für Schiedsgerichtsurteile (bsg2tex).
 
@@ -125,6 +106,9 @@ Mit einem Sternchen wird die Ziffer/der Buchstabe nicht ausgegeben und auch nich
 
 \subsection{URLs}
 
-Hierfür gibt es das {\textbackslash}url-Kommando \url{http://www.verklagmichdoch.de}, welches für besseren Lesefluß empfohlenerweise in Fußnoten\footnote{\url{http://www.verklagmichdoch.de}} eingesetzt werden kann.
+Hierfür gibt es das {\textbackslash}url-Kommando, welches für besseren Lesefluß empfohlenerweise in Fußnoten\footnote{\url{http://www.verklagmichdoch.de}} eingesetzt werden kann.
+
+Um auf frühere Urteile des Bundesschiedsgerichts\footnote{Wichtig hierbei ist es auf die Wikiseite der PDF-Datei zu verweisen, und nicht auf die PDF-Datei direkt. Es gibt keine Garantie dass die PDF-Datei auf ewig an der gleichen Stelle bleibt.} zu verweisen, bietet sich das Kommando {\textbackslash}href an.
+Das Ergebnis sieht dann so aus (\href{http://wiki.piratenpartei.de/Datei:BSG_2013-01-27.pdf}{BSG 2013-01-27}).
 
 \end{document}

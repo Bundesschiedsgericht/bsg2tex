@@ -9,8 +9,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bsg2tex}[2013/06/25 v0.93 Schiedsgerichtsbeschluesse und -urteile]
-\newcommand\bsgtotexversion{v0.93}
+\ProvidesClass{bsg2tex}[2013/07/04 v0.94 Schiedsgerichtsbeschluesse und -urteile]
+\newcommand\bsgtotexversion{v0.94}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -147,7 +147,6 @@
 \RequirePackage{lastpage}
 
 \newcommand\Background{%
-\suspendcutout
 \setlength{\unitlength}{1mm}
 
 %
@@ -215,7 +214,6 @@
 \put(0,11){\parbox[b]{\paperwidth}{\RichterTabelle}}
 }
 
-\resumecutout
 }
 
 \AddToShipoutPicture{\Background}
@@ -223,91 +221,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  LaTeX3-Magie um Textblock rechts oben freizustellen,
-%  adaptiert von
-%  http://tex.stackexchange.com/questions/36848/non-rectangular-page-geometry
-%
-%  funktioniert leider nicht zuverlässig. Wird in einer späteren Version entfernt.
-
-\usepackage[excludeor]{everyhook}
-\usepackage{expl3,xparse}
-\ExplSyntaxOn
-  \int_new:N \l_cutout_active                    % Zum deaktivieren in bestimmten Bereichen
-  \dim_new:N \l_cutout_height_dim
-  \dim_new:N \l_cutout_width_dim
-  \dim_new:N \l_cutout_hsize_dim
-  \dim_new:N \l_cutout_fudge_dim
-  \int_new:N \l_cutout_short_lines_this_page_int % Zeilen am Seitenanfang beschneiden
-  \int_new:N \l_cutout_total_lines_int           % Insgesamt Zeilen auf dieser Seite
-  \int_new:N \l_cutout_short_lines_next_page_int % Zeilen am folgenden Seitenanfang beschneiden
-  \NewDocumentCommand{\suspendcutout}{} { \int_set_eq:NN \l_cutout_active \c_zero }
-  \NewDocumentCommand{\resumecutout}{}  { \int_set_eq:NN \l_cutout_active \c_one  }
-  \NewDocumentCommand{\cutouttop}{mm}
-    {
-      \dim_set:Nn \l_cutout_height_dim { #1 }
-      \dim_set:Nn \l_cutout_width_dim { #2 }
-      \dim_set:Nn \l_cutout_fudge_dim { 2.4pt }  % Geheimnisvoller Fudge-Factor. #dontask
-      \int_set_eq:NN \l_cutout_active \c_one
-%      \exp_args:No \tex_everypar:D \cutout_everypar:
-      \PushPostHook{par}{\cutout_everypar}
-    }
-  \NewDocumentCommand{\cutout_everypar}{}
-%  \cs_new_protected:Npn \cutout_everypar:
-  {
-    \int_compare:nNnT \l_cutout_active > \c_zero
-    {
-      \dim_set:Nn \l_cutout_hsize_dim
-        { \tex_hsize:D - \l_cutout_width_dim }
-
-      \int_set_eq:NN \l_cutout_short_lines_this_page_int \c_zero
-      \int_compare:nNnF \tex_pagetotal:D > \l_cutout_height_dim
-        {
-          \int_set:Nn \l_cutout_short_lines_this_page_int
-            {
-              \int_div_truncate:nn
-                { \l_cutout_height_dim - \tex_pagetotal:D } %- \tex_pagetotal:D 
-                { \tex_baselineskip:D }
-            }
-          \int_set:Nn \l_cutout_short_lines_this_page_int
-            { \int_eval:w \l_cutout_short_lines_this_page_int + \c_one \int_eval_end: }
-        }
-
-      \int_set:Nn \l_cutout_total_lines_int
-        {
-              \int_div_truncate:nn
-                { \tex_pagegoal:D - \tex_pagetotal:D  + \l_cutout_fudge_dim }
-                { \tex_baselineskip:D }
-        }
-      \int_compare:nNnF \l_cutout_total_lines_int > \c_zero
-        { \int_set_eq:NN \l_cutout_total_lines_int \c_zero }
-
-%      \the\l_cutout_total_lines_int, \the\tex_pagetotal:D, 
-% page_goal: 582,28563
-% baselineskip: 13,6
-% pagetotal: 527,80023
-      \int_set:Nn \l_cutout_short_lines_next_page_int
-        {
-          \int_div_truncate:nn
-            { \l_cutout_height_dim }
-            { \tex_baselineskip:D }
-        }
-      \int_set:Nn \l_cutout_short_lines_next_page_int
-        { \int_eval:w \l_cutout_short_lines_next_page_int + \c_one \int_eval_end: }
-
-      \tex_parshape:D
-        = \int_eval:w \l_cutout_total_lines_int + \l_cutout_short_lines_next_page_int + \c_one \int_eval_end:
-          \prg_replicate:nn \l_cutout_short_lines_this_page_int
-            { \c_zero_dim \l_cutout_hsize_dim }
-          \prg_replicate:nn { \l_cutout_total_lines_int - \l_cutout_short_lines_this_page_int }
-            { \c_zero_dim \tex_hsize:D }
-          \prg_replicate:nn \l_cutout_short_lines_next_page_int
-            { \c_zero_dim \l_cutout_hsize_dim }
-        \c_zero_dim \tex_hsize:D
-    }
-  }
-\ExplSyntaxOff
-
-%\cutouttop{17.5mm}{50mm}
+% \usepackage[excludeor]{everyhook}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
