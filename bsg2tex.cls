@@ -9,8 +9,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bsg2tex}[2013/12/15 v0.97 Schiedsgerichtsbeschluesse und -urteile]
-\newcommand\bsgtotexversion{v0.97}
+\ProvidesClass{bsg2tex}[2014/08/28 v0.98 Schiedsgerichtsbeschluesse und -urteile]
+\newcommand\bsgtotexversion{v0.98}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -75,6 +75,13 @@
 \newcommand{\Verschlusssache}[1]{%
 \ifbool{bsganonym}{\vspace{10mm}\begin{center}\textit{#1}\end{center}\end{document}}{}%
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Mehrfach §§-Zeichen:
+%
+
+\newcommand{\SSS}{\S\kern-0.4\S}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
