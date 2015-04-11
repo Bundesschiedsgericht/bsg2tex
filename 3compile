@@ -23,14 +23,14 @@ for MODE in "volltext" "anonym" "print";
 do
         TEXPATH=${FILE/%.tex/-${MODE}.tex}
         if [ ! -e "${TEXPATH}" ]; then
-                echo "\\documentclass[${MODE}]{bsg2tex}" &gt; $TEXPATH
-                echo "\\input{${FILE}}" &gt;&gt; $TEXPATH
+                echo "\\documentclass[${MODE}]{bsg2tex}" > $TEXPATH
+                echo "\\input{${FILE}}" >> $TEXPATH
         fi;
 
 
         AUXFILE="${FILE/%.tex/-${MODE}.aux}"
         # pdflatex jeweils solange iterieren bis .aux-Datei konvergiert oder Fehler auftreten
-        until diff "${AUXFILE}" "${AUXFILE/%.aux/.aux.sec}" 2&gt;&amp;1 &gt; /dev/null; 
+        until diff "${AUXFILE}" "${AUXFILE/%.aux/.aux.sec}" 2>&1 > /dev/null;
         do
                 if [ -e "${AUXFILE}" ]; then
                         cp -a "${AUXFILE}" "${AUXFILE/%.aux/.aux.sec}"
