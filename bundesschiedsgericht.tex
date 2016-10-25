@@ -11,14 +11,14 @@
 
 %
 % Textblock oben rechts: Name, Anschrift, Mailadresse, Ort, Datum, Aktenzeichen
-% Wenn die Größe der \parbox geändert werden muss, wird eventuell eine Anpassung
+% Wenn die GrÃ¶ÃŸe der \parbox geÃ¤ndert werden muss, wird eventuell eine Anpassung
 % der Koordinaten und des freigestellten Bereichs im Template notwendig.
 %
 \newcommand{\Header}{
 \parbox[t][36mm]{60mm}{\small%
 Piratenpartei Deutschland\\
 Bundesschiedsgericht\\
-Pflugstraße 9a, 10115 Berlin\\
+PflugstraÃŸe 9a, 10115 Berlin\\
 schiedsgericht@piratenpartei.de\\[0.1em]
 Berlin, den \textbf{\Datum}\\
 AZ: \textbf{\Aktenzeichen}}
@@ -36,16 +36,16 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 %
 % Der eigentliche Footer
 % Eine 8-spaltige Tabelle (Anzahl 'c's in der Zeile mit 'tabular').
-% In der einzeiligen Tabelle wird dann jede Spalte grundsätzlich auf eine spezifische Breite (XXmm) forciert.
-% Für ein 7-köpfiges Gremium werden 26mm empfohlen, wobei längere Namen oder Titel ausnahmsweise
-% breitere Spalten notwendig machen können ('Vorsitzender~Richter' bspw. 26.5mm).
-% Für ein 6-köpfiges oder kleineres Gremium werden 28mm empfohlen.
+% In der einzeiligen Tabelle wird dann jede Spalte grundsÃ¤tzlich auf eine spezifische Breite (XXmm) forciert.
+% FÃ¼r ein 7-kÃ¶pfiges Gremium werden 26mm empfohlen, wobei lÃ¤ngere Namen oder Titel ausnahmsweise
+% breitere Spalten notwendig machen kÃ¶nnen ('Vorsitzender~Richter' bspw. 26.5mm).
+% FÃ¼r ein 6-kÃ¶pfiges oder kleineres Gremium werden 28mm empfohlen.
 % 
-% Alle \parbox-Zeilen ausser der letzten müssen mit &% enden, und es sollten in dem ganzen Makro
-% keine überflüssigen Leerstellen oder Returns vorkommen.
+% Alle \parbox-Zeilen ausser der letzten mÃ¼ssen mit &% enden, und es sollten in dem ganzen Makro
+% keine Ã¼berflÃ¼ssigen Leerstellen oder Returns vorkommen.
 %
 % Soll die Tabelle insgesamt horizontal ausgebreitet werden, kann \tabcolsep (Spaltenabstand)
-% von 0mm auf einen höheren Wert gestellt werden. Einfach ausprobieren.
+% von 0mm auf einen hÃ¶heren Wert gestellt werden. Einfach ausprobieren.
 %
 \newcommand{\RichterTabelle}{%
 \setlength{\tabcolsep}{0mm}%
@@ -57,6 +57,6 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 \parbox[t]{26.5mm}{\centering Michael\\Ebner\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
 \parbox[t]{26.5mm}{\centering Klaus\\Sommerfeld\\[0.2em]\footnotesize{Richter}}&%
 \parbox[t]{26.5mm}{\centering Holger\\van Lengerich\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{26.5mm}{\centering Stefan\\ThÃ¶ni\\[0.2em]\footnotesize{Ersatzrichter}}%
+\parbox[t]{26.5mm}{\centering Stefan\\ThÃƒÂ¶ni\\[0.2em]\footnotesize{Ersatzrichter}}%
 \end{tabular}}%
 }

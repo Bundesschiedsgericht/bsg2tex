@@ -2,7 +2,7 @@
 %
 % bsg2tex
 %
-% LaTeX-Vorlage für Schiedsgerichtsbeschlüsse und -urteile
+% LaTeX-Vorlage fÃ¼r SchiedsgerichtsbeschlÃ¼sse und -urteile
 % CC-BY Markus Gerstel
 %
 % For great justice!
@@ -15,24 +15,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Präambel (wegen der Rechtssicherheit)
+%  PrÃ¤ambel (wegen der Rechtssicherheit)
 
 \usepackage{etoolbox}
 \newbool{bsganonym}\newbool{bsgvordruck}\newbool{bsgbriefpapier}
 
-% Es gibt aktuell drei gültige Optionen für die bsg2tex Klasse:
+% Es gibt aktuell drei gÃ¼ltige Optionen fÃ¼r die bsg2tex Klasse:
 %
 %   - anonym     Anonymisiert/pseudonymisiert vorhandene Namen
 %
 %   - print      Entfernt Hintergrundelemente zum Ausdruck auf (vorgedrucktes) Briefpapier
 %
 %   - invprint   Nur Hintergrundelemente. Zur Produktion von (vorgedrucktem) Briefpapier.
-%                In diesem Fall sollte natürlich kein Text im eigentlichen Dokument stehen.
+%                In diesem Fall sollte natÃ¼rlich kein Text im eigentlichen Dokument stehen.
 %                Da LaTeX keine leeren Dokumente schreiben mag, wird
 %                  \begin{document}
 %                  \textcolor{white}{\rule{0mm}{0mm}}
 %                  \end{document}
-%                als Dokumenteninhalt empfohlen. (Weißes Quadrat mit Kantenlänge 0)
+%                als Dokumenteninhalt empfohlen. (WeiÃŸes Quadrat mit KantenlÃ¤nge 0)
 
 \DeclareOption{anonym}{\booltrue{bsganonym}}
 \DeclareOption{print}{\booltrue{bsgvordruck}\boolfalse{bsgbriefpapier}}
@@ -79,7 +79,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Mehrfach §§-Zeichen:
+%  Mehrfach Â§Â§-Zeichen:
 %
 
 \newcommand{\SSS}{\S\kern-0.4\S}
@@ -103,7 +103,7 @@
 %
 %  Seitenlayout
 %
-%  Textbereich und Ränder
+%  Textbereich und RÃ¤nder
 %
 
 \setlength{\textwidth}{161mm}
@@ -160,7 +160,7 @@
 %  Standardseitenelemente setzen
 %   - Piratenparteilogo
 %   - Signet im Hintergrund
-%   - Überschrift (nur auf 1. Seite)
+%   - Ãœberschrift (nur auf 1. Seite)
 %   - Textblock oben rechts
 %   - Footer
 %
@@ -186,7 +186,7 @@
 \put(121.91,261.937){\includegraphics[width=63.34mm]{Logo.pdf}}
 }
 
-% Freigestellter Block oben rechts (für Debuggingzwecke)
+% Freigestellter Block oben rechts (fÃ¼r Debuggingzwecke)
 %\put(131.88,255.5){\textcolor{piraten}{\rule[-32mm]{72.67mm}{39mm}}}
 %\put(144.55,258.5){\textcolor{white}{\rule[-32mm]{60mm}{36mm}}}
 
@@ -264,7 +264,7 @@
 %citebordercolor={0.60 0.81 0.92},
  urlbordercolor={1.00 0.53 0.00},
  breaklinks=true,
-% Infos zu den möglichen Einstellungen:
+% Infos zu den mÃ¶glichen Einstellungen:
 % http://mirror.switch.ch/ftp/mirror/tex/macros/latex/contrib/hyperref/doc/manual.html
 % http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-3
 }
