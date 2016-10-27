@@ -18,7 +18,7 @@
 %  Präambel (wegen der Rechtssicherheit)
 
 \usepackage{etoolbox}
-\newbool{bsganonym}\newbool{bsgvordruck}\newbool{bsgbriefpapier}
+\newbool{bsganonym}\newbool{bsgvordruck}\newbool{bsgbriefpapier}\newbool{bsghtml}
 
 % Es gibt aktuell drei gültige Optionen für die bsg2tex Klasse:
 %
@@ -35,13 +35,14 @@
 %                als Dokumenteninhalt empfohlen. (Weißes Quadrat mit Kantenlänge 0)
 
 \DeclareOption{anonym}{\booltrue{bsganonym}}
+\DeclareOption{html}{\booltrue{bsghtml}}
 \DeclareOption{print}{\booltrue{bsgvordruck}\boolfalse{bsgbriefpapier}}
 \DeclareOption{invprint}{\boolfalse{bsgvordruck}\booltrue{bsgbriefpapier}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt,a4paper]{article}
 
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \setlength{\unitlength}{1mm}
 
@@ -89,7 +90,9 @@
 %  Font
 %
 
+\ifbool{bsghtml}{}{
 \usepackage[default]{sourcesanspro}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -141,19 +144,19 @@
 %
 
 \usepackage{titlesec}
-\renewcommand{\thesection}{\Roman{section}} 
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\alph{subsubsection}}
+\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
 
 \titlespacing{\section}{0pt}{*1}{*0.5}
 \titleformat{\section}
-{\normalfont\large\bfseries}{\thesection.}{1em}{}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
 \titlespacing{\subsection}{0pt}{*0.2}{-\parskip}
 \titleformat{\subsection}
-{\normalfont\bfseries}{\thesubsection.}{1em}{}
+{\normalfont\bfseries}{\thesubsection}{1em}{}
 \titlespacing{\subsubsection}{0pt}{*0}{-\parskip}
 \titleformat{\subsubsection}
-{\normalfont\bfseries}{\thesubsubsection.}{1em}{}
+{\normalfont\bfseries}{\thesubsubsection}{1em}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -164,6 +167,8 @@
 %   - Textblock oben rechts
 %   - Footer
 %
+
+\ifbool{bsghtml}{}{
 
 \RequirePackage{graphicx}
 \RequirePackage{eso-pic}
@@ -240,6 +245,7 @@
 }
 
 \AddToShipoutPicture{\Background}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,3 +279,13 @@
 %
 % You know what you doing!
 %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Quoting packages
+
+\usepackage{quotehelper}
+\usepackage{quotesatzung}
+\usepackage{quotegermanlaw}
+\usepackage{quoteliterature}
+

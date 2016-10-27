@@ -1,0 +1,128 @@
+\ProvidesPackage{quotesatzung}[2016/10/15 v1.0 (Stefan Thöni)]
+\RequirePackage{hyperref}
+\RequirePackage{ifthen}
+\RequirePackage{xparse}
+\RequirePackage{scrbase}
+\RequirePackage{pdftexcmds}
+\RequirePackage{quotehelper}
+
+% ======================================
+% Gemeinsames Wording
+% ======================================
+
+\providecaptionname{ngerman}{\wordpar}{§}
+\providecaptionname{ngerman}{\wordabs}{Abs.}
+\providecaptionname{ngerman}{\wordnum}{Nr.}
+\providecaptionname{ngerman}{\wordchar}{Bst.}
+\providecaptionname{ngerman}{\wordphr}{S.}
+\providecaptionname{ngerman}{\wordhphr}{Halbs.}
+
+\providecaptionname{ngerman}{\mjan}{Januar}
+\providecaptionname{ngerman}{\mfeb}{Februar}
+\providecaptionname{ngerman}{\mmar}{März}
+\providecaptionname{ngerman}{\mapr}{April}
+\providecaptionname{ngerman}{\mmai}{Mai}
+\providecaptionname{ngerman}{\mjun}{Juni}
+\providecaptionname{ngerman}{\mjul}{Juli}
+\providecaptionname{ngerman}{\maug}{August}
+\providecaptionname{ngerman}{\msep}{September}
+\providecaptionname{ngerman}{\moct}{Oktober}
+\providecaptionname{ngerman}{\mnov}{November}
+\providecaptionname{ngerman}{\mdec}{Dezember}
+
+% ======================================
+% Zugriff Satzung im Wiki
+% ======================================
+
+\newcommand{\getbsurl}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {1}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_1_-_Name.2C_Sitz_und_T.C3.A4tigkeitsgebiet}
+        {2}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_2\_-\_Mitgliedschaft}
+        {3}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_3\_-\_Erwerb\_der\_Mitgliedschaft}
+        {4}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7v_4\_-\_Rechte\_und\_Pflichten\_der\_Piraten}
+        {5}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_5\_-\_Beendigung\_der\_Mitgliedschaft}
+        {6}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_6\_-\_Ordnungsma.C3.9Fnahmen}
+        {7}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_7\_-\_Gliederung}
+        {8}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_8\_-\_Bundespartei\_und\_Landesverb.C3.A4nde}
+        {9}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_9\_-\_Organe\_der\_Bundespartei}
+        {9a}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_9a\_-\_Der\_Bundesvorstand}
+        {9b}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_9b\_-\_Der\_Bundesparteitag}
+        {10}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_10\_-\_Bewerberaufstellung\_f.C3.BCr\_die\_Wahlen\_zu\_Volksvertretungen}
+        {11}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_11\_-\_Zulassung\_von\_G.C3.A4sten}
+        {12}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_12\_-\_Satzungs-\_und\_Programm.C3.A4nderung}
+        {13}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_13\_-\_Aufl.C3.B6sung\_und\_Verschmelzung}
+        {14}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_14\_-\_Verbindlichkeit\_dieser\_Bundessatzung}
+        {15}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_15\_-\_Partei.C3.A4mter}
+        {16}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_16\_-\_Basisentscheid\_und\_Basisbefragung}
+    }%
+    {https://wiki.piratenpartei.de/Bundessatzung\#Abschnitt\_A:\_Grundlagen}%
+}
+
+\newcommand{\getsgourl}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {1}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_1\_-\_Grundlagen}
+        {2}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_2\_-\_Schiedsgericht}
+        {3}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_3\_-\_Richterwahl}
+        {4}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_4\_-\_Besetzung}
+        {5}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_5_.E2.80.93_Befangenheit}
+        {6}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_6\_-\_Zust.C3.A4ndigkeit}
+        {7}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_7\_-\_Schlichtung}
+        {8}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_8\_-\_Anrufung}
+        {9}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_9\_-\_Er.C3.B6ffnung}
+        {10}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_10\_-\_Verfahren}
+        {10a}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_10a\_-\_Wiedereinsetzung\_in\_den\_vorherigen\_Stand}
+        {11}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_11\_-\_Einstweilige\_Anordnung}
+        {12}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_12\_-\_Urteil}
+        {13}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_13\_-\_Berufung}
+        {14}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_14\_-\_Dokumentation}
+        {15}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_15\_-\_Rechenschaftsbericht}
+        {16}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_16\_-\_Kosten_und_Auslagen}
+        {17}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_17\_-\_Inkrafttreten\_und\_.C3.9Cbergangsbestimmungen}
+    }%
+    {https://wiki.piratenpartei.de/Bundessatzung\#Abschnitt\_C:\_Schiedsgerichtsordnung}%
+}
+
+\newcommand{\getsaurl}[2]{%
+  \stringcases
+    {#1}%
+    {%
+        {bs}{\getbsurl{#2}}
+        {sgo}{\getsgourl{#2}}
+    }
+    {}%
+}
+
+\newcounter{bscount}
+\newcounter{sgocount}
+
+\newcommand{\getsaname}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {bs}{\stepcounter{bscount}\ifthenelse{\equal{\value{bscount}}{1}}{Bundessatzung (BS)}{BS}}
+        {sgo}{\stepcounter{sgocount}\ifthenelse{\equal{\value{sgocount}}{1}}{Schiedsgerichtsordnung (SGO)}{SGO}}
+    }
+    {}%
+}
+
+\DeclareDocumentCommand{\getsalink}{ m O{} O{} O{} O{} O{} O{} O{} O{} }{%
+\href{\getsaurl{#1}{#2}}{\ifthenelse{\equal{#2}{}}{}{#9\wordpar~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordnum~#4~}\ifthenelse{\equal{#5}{}}{}{\wordchar~#5~}\ifthenelse{\equal{#6}{}}{}{\wordphr~#6~}\ifthenelse{\equal{#7}{}}{}{\wordhphr~#7~}\ifthenelse{\equal{#8}{}}{}{#8~}\getsaname{#1}}}
+
+\DeclareDocumentCommand{\getsalinkaf}{ m m O{} O{} O{} O{} O{} O{} O{} }{%
+\href{#2}{\ifthenelse{\equal{#3}{}}{}{\wordpar~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordnum~#5~}\ifthenelse{\equal{#6}{}}{}{\wordchar~#6~}\ifthenelse{\equal{#7}{}}{}{\wordphr~#7~}\ifthenelse{\equal{#8}{}}{}{\wordhphr~#8~}\ifthenelse{\equal{#9}{}}{}{#9~}\getsaname{#1}}}
+
+\DeclareDocumentCommand{\bs}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\bsf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\bsff}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\bsnf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][n.F.]}
+\DeclareDocumentCommand{\bsaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getsalinkaf{bs}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+
+\DeclareDocumentCommand{\sgo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\sgof}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\sgoff}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\sgonf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][n.F.]}
+\DeclareDocumentCommand{\sgoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getsalinkaf{sgo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}

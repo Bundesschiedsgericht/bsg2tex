@@ -1,0 +1,36 @@
+\ProvidesPackage{quoteliterature}[2016/10/21 v1.0 (Stefan Thöni)]
+\RequirePackage{hyperref}
+\RequirePackage{ifthen}
+\RequirePackage{xparse}
+\RequirePackage{scrbase}
+\RequirePackage{pdftexcmds}
+\RequirePackage{quotehelper}
+
+\DeclareDocumentCommand{\getcitenum}{ m O{} O{} }{%
+#1\ifthenelse{\equal{#2}{}}{}{,~§~#2}\ifthenelse{\equal{#3}{}}{}{~Rn.~#3}}
+\DeclareDocumentCommand{\zitrn}{ O{} O{} }{%
+§~#1\ifthenelse{\equal{#2}{}}{}{~Rn.~#2}}
+
+\newcounter{powocount}
+\DeclareDocumentCommand{\powokk}{ O{} O{} }{%
+\stepcounter{powocount}\getcitenum{\ifthenelse{\equal{\value{powocount}}{1}}{Posser/Wolff, VwGO, 2. Aufl.}{Posser/Wolff}}[#1][#2]}
+\DeclareDocumentCommand{\powo}{ O{} O{} }{%
+(\powokk[#1][#2])}
+
+\newcounter{lenskicount}
+\DeclareDocumentCommand{\lenskikk}{ O{} O{} }{%
+\stepcounter{lenskicount}\getcitenum{\ifthenelse{\equal{\value{lenskicount}}{1}}{Lenski, Parteiengesetz und Recht der Kandidatenaufstellung}{Lenski}}[#1][#2]}
+\DeclareDocumentCommand{\lenski}{ O{} O{} }{%
+(\lenskikk[#1][#2])}
+
+\newcounter{ipsencount}
+\DeclareDocumentCommand{\ipsenkk}{ O{} O{} }{%
+\stepcounter{ipsencount}\getcitenum{\ifthenelse{\equal{\value{ipsencount}}{1}}{Ipsen, Parteiengesetz}{Ipsen}}[#1][#2]}
+\DeclareDocumentCommand{\ipsen}{ O{} O{} }{%
+(\ipsenkk[#1][#2])}
+
+\newcounter{kericount}
+\DeclareDocumentCommand{\kerikk}{ O{} O{} }{%
+\stepcounter{kericount}\getcitenum{\ifthenelse{\equal{\value{kericount}}{1}}{Kersten/Rixen, Parteiengesetz und europäisches Parteienrecht}{Kersten/Rixen}}[#1][#2]}
+\DeclareDocumentCommand{\keri}{ O{} O{} }{%
+(\kerikk[#1][#2])}

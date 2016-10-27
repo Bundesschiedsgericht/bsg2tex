@@ -1,0 +1,17 @@
+\ProvidesPackage{quotehelper}[2016/10/21 v1.0 (Stefan Thöni)]
+
+\newcommand{\stringcases}[3]{%
+  \romannumeral
+    \str@case{#1}#2{#1}{#3}\q@stop
+}
+\newcommand{\str@case}[3]{%
+  \ifnum\pdf@strcmp{\unexpanded{#1}}{\unexpanded{#2}}=\z@
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+    {\str@case@end{#3}}
+    {\str@case{#1}}%
+}
+\newcommand{\str@case@end}{}
+\long\def\str@case@end#1#2\q@stop{\z@#1}
