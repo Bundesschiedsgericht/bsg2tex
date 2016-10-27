@@ -42,7 +42,7 @@
 \ProcessOptions\relax
 \LoadClass[11pt,a4paper]{article}
 
-\usepackage[utf8]{inputenc}
+\ifbool{bsghtml}{\usepackage[utf8]{inputenc}}{}
 \usepackage[ngerman]{babel}
 \setlength{\unitlength}{1mm}
 
