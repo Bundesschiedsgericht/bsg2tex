@@ -62,6 +62,7 @@
         {gg}{\stepcounter{ggcount}\ifthenelse{\equal{\value{ggcount}}{1}}{Grundgesetz (GG)}{GG}}
         {partg}{\stepcounter{partgcount}\ifthenelse{\equal{\value{partgcount}}{1}}{Parteiengesetz (PartG)}{PartG}}
         {vwgo}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Verwaltungsgerichtsordnung (VwGO)}{VwGO}}
+	{bgb}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Bürgerliches Gesetzbuch (BGB)}{BGB}}
     }
     {}%
 }
@@ -90,3 +91,10 @@
 \DeclareDocumentCommand{\vwgoff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
 \DeclareDocumentCommand{\vwgonf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6][n.F.]}
 \DeclareDocumentCommand{\vwgoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{vwgo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+
+\DeclareDocumentCommand{\bgb}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\bgbf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\bgbff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\bgbnf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][n.F.]}
+\DeclareDocumentCommand{\bgbaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{bgb}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+
