@@ -34,3 +34,10 @@
 \stepcounter{kericount}\getcitenum{\ifthenelse{\equal{\value{kericount}}{1}}{Kersten/Rixen, Parteiengesetz und europäisches Parteienrecht}{Kersten/Rixen}}[#1][#2]}
 \DeclareDocumentCommand{\keri}{ O{} O{} }{%
 (\kerikk[#1][#2])}
+
+\newcounter{prgecount}
+\DeclareDocumentCommand{\prgekk}{ O{} O{} }{%
+\stepcounter{prgecount}\getcitenum{\ifthenelse{\equal{\value{prgecount}}{1}}{Prütting/Gehrlein, ZPO~Kommentar, 8.~Auflage}{Prütting/Gehrlein}}[#1][#2]}
+\DeclareDocumentCommand{\prge}{ O{} O{} }{%
+(\prgekk[#1][#2])}
+
