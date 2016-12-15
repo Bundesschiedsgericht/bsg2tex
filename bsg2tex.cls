@@ -44,6 +44,7 @@
 
 \ifbool{bsghtml}{\usepackage[utf8]{inputenc}}{}
 \usepackage[ngerman]{babel}
+\usepackage{csquotes}
 \setlength{\unitlength}{1mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
