@@ -98,3 +98,17 @@
 \DeclareDocumentCommand{\bgbnf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][n.F.]}
 \DeclareDocumentCommand{\bgbaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{bgb}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
 
+\DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\zpof}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\zpoff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\zponf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][n.F.]}
+\DeclareDocumentCommand{\zpoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{zpo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+
+\DeclareDocumentCommand{\drig}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\drigf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\drigff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
+\DeclareDocumentCommand{\drignf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][n.F.]}
+\DeclareDocumentCommand{\drigaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{drig}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+
+
+
