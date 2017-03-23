@@ -18,7 +18,7 @@
 %  Präambel (wegen der Rechtssicherheit)
 
 \usepackage{etoolbox}
-\newbool{bsganonym}\newbool{bsgvordruck}\newbool{bsgbriefpapier}\newbool{bsghtml}
+\newbool{bsganonym}\newbool{bsgvordruck}\newbool{bsgbriefpapier}\newbool{bsghtml}\newbool{logovordruck}
 
 % Es gibt aktuell drei gültige Optionen für die bsg2tex Klasse:
 %
@@ -36,8 +36,9 @@
 
 \DeclareOption{anonym}{\booltrue{bsganonym}}
 \DeclareOption{html}{\booltrue{bsghtml}}
-\DeclareOption{print}{\booltrue{bsgvordruck}\boolfalse{bsgbriefpapier}}
-\DeclareOption{invprint}{\boolfalse{bsgvordruck}\booltrue{bsgbriefpapier}}
+\DeclareOption{logo}{\booltrue{bsgvordruck}\boolfalse{logovordruck}\boolfalse{bsgbriefpapier}}
+\DeclareOption{print}{\booltrue{bsgvordruck}\booltrue{logovordruck}\boolfalse{bsgbriefpapier}}
+\DeclareOption{invprint}{\boolfalse{bsgvordruck}\boolfalse{logovordruck}\booltrue{bsgbriefpapier}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt,a4paper]{article}
@@ -188,7 +189,7 @@
 %
 % Logo oben rechts
 %
-\ifbool{bsgvordruck}{}{
+\ifbool{logovordruck}{}{
 \put(121.91,261.937){\includegraphics[width=63.34mm]{Logo.pdf}}
 }
 
