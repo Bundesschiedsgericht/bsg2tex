@@ -112,17 +112,12 @@
 \DeclareDocumentCommand{\getsalink}{ m O{} O{} O{} O{} O{} O{} O{} O{} }{%
 \href{\getsaurl{#1}{#2}}{\ifthenelse{\equal{#2}{}}{}{#9\wordpar~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordnum~#4~}\ifthenelse{\equal{#5}{}}{}{\wordchar~#5~}\ifthenelse{\equal{#6}{}}{}{\wordphr~#6~}\ifthenelse{\equal{#7}{}}{}{\wordhphr~#7~}\ifthenelse{\equal{#8}{}}{}{#8~}\getsaname{#1}}}
 
-\DeclareDocumentCommand{\getsalinkaf}{ m m O{} O{} O{} O{} O{} O{} O{} }{%
-\href{#2}{\ifthenelse{\equal{#3}{}}{}{\wordpar~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordnum~#5~}\ifthenelse{\equal{#6}{}}{}{\wordchar~#6~}\ifthenelse{\equal{#7}{}}{}{\wordphr~#7~}\ifthenelse{\equal{#8}{}}{}{\wordhphr~#8~}\ifthenelse{\equal{#9}{}}{}{#9~}\getsaname{#1}}}
+\DeclareDocumentCommand{\getsalinkfree}{ m m O{} }{%
+\href{\getsaurl{#2}{#3}}{#1}}
 
 \DeclareDocumentCommand{\bs}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\bsf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\bsff}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\bsnf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\bsaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getsalinkaf{bs}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\bst}{ O{} O{} }{\getsalinkfree{#2}{bs}[#1]}
 
 \DeclareDocumentCommand{\sgo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\sgof}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\sgoff}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\sgonf}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\sgoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getsalinkaf{sgo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\sgot}{ O{} O{} }{\getsalinkfree{#2}{sgo}[#1]}
+

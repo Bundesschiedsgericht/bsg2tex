@@ -73,44 +73,27 @@
 \ifthenelse{\equal{#2}{}}{\href{https://www.gesetze-im-internet.de/#1/}{\getlawname{#1}}}{%
 \href{\getlawurl{#1}{#2}}{\ifthenelse{\equal{#2}{}}{}{#9\getlawartpar{#1}~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordnum~#4~}\ifthenelse{\equal{#5}{}}{}{\wordchar~#5~}\ifthenelse{\equal{#6}{}}{}{\wordphr~#6~}\ifthenelse{\equal{#7}{}}{}{\wordhphr~#7~}\ifthenelse{\equal{#8}{}}{}{#8~}\getlawname{#1}}}}
 
-\DeclareDocumentCommand{\getsawlinkaf}{ m m O{} O{} O{} O{} O{} O{} O{} }{%
-\href{#2}{\ifthenelse{\equal{#3}{}}{}{\getlawartpar{1}~#3~}\ifthenelse{\equal{#4}{}}{}{\wordabs~#4~}\ifthenelse{\equal{#5}{}}{}{\wordnum~#5~}\ifthenelse{\equal{#6}{}}{}{\wordchar~#6~}\ifthenelse{\equal{#7}{}}{}{\wordphr~#7~}\ifthenelse{\equal{#8}{}}{}{\wordhphr~#8~}\ifthenelse{\equal{#9}{}}{}{#9~}\getlawname{#1}}}
+\DeclareDocumentCommand{\getlawlinkfree}{ m m O{} }{%
+\ifthenelse{\equal{#3}{}}{\href{https://www.gesetze-im-internet.de/#2/}{#1}}{%
+\href{\getlawurl{#2}{#3}}{#1}}}
 
 \DeclareDocumentCommand{\gg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{gg}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\ggf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{gg}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\ggff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{gg}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\ggnf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{gg}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\ggaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{gg}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\ggt}{ O{} O{} }{\getlawlinkfree{#2}{gg}[#1]}
 
 \DeclareDocumentCommand{\partg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{partg}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\partgf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{partg}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\partgff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{partg}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\partgnf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{partg}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\partgaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{partg}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\partgt}{ O{} O{} }{\getlawlinkfree{#2}{partg}[#1]}
 
 \DeclareDocumentCommand{\vwgo}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\vwgof}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\vwgoff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\vwgonf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\vwgoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{vwgo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\vwgot}{ O{} O{} }{\getlawlinkfree{#2}{vwgo}[#1]}
 
 \DeclareDocumentCommand{\bgb}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\bgbf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\bgbff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\bgbnf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\bgbaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{bgb}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\bgbt}{ O{} O{} }{\getlawlinkfree{#2}{bgb}[#1]}
 
 \DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\zpof}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\zpoff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\zponf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\zpoaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{zpo}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\zpot}{ O{} O{} }{\getlawlinkfree{#2}{zpo}[#1]}
 
 \DeclareDocumentCommand{\drig}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\drigf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][f.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\drigff}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][ff.][\ifthenelse{\equal{#2}{}}{§}{}]}
-\DeclareDocumentCommand{\drignf}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6][n.F.]}
-\DeclareDocumentCommand{\drigaf}{ O{} O{} O{} O{} O{} O{} O{} }{\getlawlinkaf{drig}{#1}[#2][#3][#4][#5][#6][#7][a.F.]}
+\DeclareDocumentCommand{\drigt}{ O{} O{} }{\getlawlinkfree{#2}{drig}[#1]}
 
 
 
