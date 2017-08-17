@@ -74,26 +74,32 @@
 \href{\getlawurl{#1}{#2}}{\ifthenelse{\equal{#2}{}}{}{#9\getlawartpar{#1}~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordnum~#4~}\ifthenelse{\equal{#5}{}}{}{\wordchar~#5~}\ifthenelse{\equal{#6}{}}{}{\wordphr~#6~}\ifthenelse{\equal{#7}{}}{}{\wordhphr~#7~}\ifthenelse{\equal{#8}{}}{}{#8~}\getlawname{#1}}}}
 
 \DeclareDocumentCommand{\getlawlinkfree}{ m m O{} }{%
-\ifthenelse{\equal{#3}{}}{\href{https://www.gesetze-im-internet.de/#2/}{#1}}{%
-\href{\getlawurl{#2}{#3}}{#1}}}
+\ifthenelse{\equal{#3}{}}{\href{https://www.gesetze-im-internet.de/#2/}{\jurfmt{#1}}}{%
+\href{\getlawurl{#2}{#3}}{\jurfmt{#1}}}}
 
 \DeclareDocumentCommand{\gg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{gg}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\ggt}{ O{} O{} }{\getlawlinkfree{#2}{gg}[#1]}
+\DeclareDocumentCommand{\ggf}{ O{} O{} }{\getlawlinkfree{#2}{gg}[#1]}
+\newcommand{\ggt}{\getlawname{gg}}
 
 \DeclareDocumentCommand{\partg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{partg}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\partgt}{ O{} O{} }{\getlawlinkfree{#2}{partg}[#1]}
+\DeclareDocumentCommand{\partgf}{ O{} O{} }{\getlawlinkfree{#2}{partg}[#1]}
+\newcommand{\partgt}{\getlawname{partg}}
 
 \DeclareDocumentCommand{\vwgo}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{vwgo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\vwgot}{ O{} O{} }{\getlawlinkfree{#2}{vwgo}[#1]}
+\DeclareDocumentCommand{\vwgof}{ O{} O{} }{\getlawlinkfree{#2}{vwgo}[#1]}
+\newcommand{\vwgot}{\getlawname{vwgo}}
 
 \DeclareDocumentCommand{\bgb}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bgb}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\bgbt}{ O{} O{} }{\getlawlinkfree{#2}{bgb}[#1]}
+\DeclareDocumentCommand{\bgbf}{ O{} O{} }{\getlawlinkfree{#2}{bgb}[#1]}
+\newcommand{\bgbt}{\getlawname{bgb}}
 
 \DeclareDocumentCommand{\zpo}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{zpo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\zpot}{ O{} O{} }{\getlawlinkfree{#2}{zpo}[#1]}
+\DeclareDocumentCommand{\zpof}{ O{} O{} }{\getlawlinkfree{#2}{zpo}[#1]}
+\newcommand{\zpot}{\getlawname{zpo}}
 
 \DeclareDocumentCommand{\drig}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{drig}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\drigt}{ O{} O{} }{\getlawlinkfree{#2}{drig}[#1]}
+\DeclareDocumentCommand{\drigf}{ O{} O{} }{\getlawlinkfree{#2}{drig}[#1]}
+\newcommand{\drigt}{\getlawname{drig}}
 
 
 

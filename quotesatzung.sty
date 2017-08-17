@@ -113,13 +113,13 @@
 \href{\getsaurl{#1}{#2}}{\ifthenelse{\equal{#2}{}}{}{#9\wordpar~#2~}\ifthenelse{\equal{#3}{}}{}{\wordabs~#3~}\ifthenelse{\equal{#4}{}}{}{\wordnum~#4~}\ifthenelse{\equal{#5}{}}{}{\wordchar~#5~}\ifthenelse{\equal{#6}{}}{}{\wordphr~#6~}\ifthenelse{\equal{#7}{}}{}{\wordhphr~#7~}\ifthenelse{\equal{#8}{}}{}{#8~}\getsaname{#1}}}
 
 \DeclareDocumentCommand{\getsalinkfree}{ m m O{} }{%
-\href{\getsaurl{#2}{#3}}{#1}}
+\href{\getsaurl{#2}{#3}}{\jurfmt{#1}}}
 
 \DeclareDocumentCommand{\bs}{ O{} O{} O{} O{} O{} O{} }{\getsalink{bs}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\bss}{ O{} O{} O{} }{\getsalink{bs}[#1][#2][][][#3]}
-\DeclareDocumentCommand{\bst}{ O{} O{} }{\getsalinkfree{#2}{bs}[#1]}
+\DeclareDocumentCommand{\bsf}{ O{} O{} }{\getsalinkfree{#2}{bs}[#1]}
+\newcommand{\bst}{\getsaname{bs}}
 
 \DeclareDocumentCommand{\sgo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6]}
-\DeclareDocumentCommand{\sgos}{ O{} O{} O{} }{\getsalink{sgo}[#1][#2][][][#3]}
-\DeclareDocumentCommand{\sgot}{ O{} O{} }{\getsalinkfree{#2}{sgo}[#1]}
+\DeclareDocumentCommand{\sgof}{ O{} O{} }{\getsalinkfree{#2}{sgo}[#1]}
+\newcommand{\sgot}{\getsaname{sgo}}
 
