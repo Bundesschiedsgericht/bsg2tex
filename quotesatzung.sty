@@ -60,6 +60,38 @@
     {https://wiki.piratenpartei.de/Bundessatzung\#Abschnitt\_A:\_Grundlagen}%
 }
 
+\newcommand{\getfourl}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {1}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_1\_Zust.C3.A4ndigkeit}
+        {2}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_2\_Rechenschaftsbericht\_Bundesverband}
+        {3}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_3\_Rechenschaftsbericht\_Landesverband}
+        {4}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_4\_Durchgriffsrecht}
+        {5}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_5\_H.C3.B6he\_Mitgliedsbeitrag}
+        {6}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_6\_Aufteilung\_Mitgliedsbeitrag}
+        {7}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_7\_Verzug}
+        {8}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_8\_Beitragsabf.C3.BChrung}
+        {9}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_9\_Weiterf.C3.BChrende\_Regelungen}
+        {10}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_10\_Vereinnahmung}
+        {11}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_11\_Ver.C3.B6ffentlichung}
+        {12}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_12\_Strafvorschrift}
+        {13}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_13\_Spendenbescheinigung}
+        {14}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_14\_Aufteilung}
+        {15}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_15\_staatliche\_Teilfinanzierung}
+        {16}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_16\_Haushaltsplan}
+        {17}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_17\_Zuordnung}
+        {18}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_18\_.C3.9Cberschreitung}
+        {19}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_19\_Weiterf.C3.BChrende\_Regelungen}
+        {20}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_20\_Mitglieder\_des\_Schatzmeisterclubs}
+        {21}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_21\_Innere\_Ordnung\_des\_Schatzmeisterclubs}
+        {22}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_22\_Sitzungen\_des\_Schatzmeisterclubs}
+        {23}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_23\_Aufgaben\_und\_Kompetenzen\_des\_Schatzmeisterclubs}
+        {24}{https://wiki.piratenpartei.de/Bundessatzung\#.C2.A7\_24\_Wirtschaftlicher\_Gesch.C3.A4ftsbetrieb}
+    }%
+    {https://wiki.piratenpartei.de/Bundessatzung\#Abschnitt\_B:\_Finanzordnung}%
+}
+
 \newcommand{\getsgourl}[1]{%
   \stringcases
     {#1}%
@@ -91,12 +123,14 @@
     {#1}%
     {%
         {bs}{\getbsurl{#2}}
+        {fo}{\getfourl{#2}}
         {sgo}{\getsgourl{#2}}
     }
     {}%
 }
 
 \newcounter{bscount}
+\newcounter{focount}
 \newcounter{sgocount}
 
 \newcommand{\getsaname}[1]{%
@@ -104,6 +138,7 @@
     {#1}%
     {%
         {bs}{\stepcounter{bscount}\ifthenelse{\equal{\value{bscount}}{1}}{Bundessatzung (BS)}{BS}}
+        {fo}{\stepcounter{focount}\ifthenelse{\equal{\value{focount}}{1}}{Finanzordnung (FO)}{FO}}
         {sgo}{\stepcounter{sgocount}\ifthenelse{\equal{\value{sgocount}}{1}}{Schiedsgerichtsordnung (SGO)}{SGO}}
     }
     {}%
@@ -119,7 +154,12 @@
 \DeclareDocumentCommand{\bsf}{ O{} O{} }{\getsalinkfree{#2}{bs}[#1]}
 \newcommand{\bst}{\getsaname{bs}}
 
+\DeclareDocumentCommand{\fo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{fo}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\fof}{ O{} O{} }{\getsalinkfree{#2}{fo}[#1]}
+\newcommand{\fot}{\getsaname{fo}}
+
 \DeclareDocumentCommand{\sgo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6]}
 \DeclareDocumentCommand{\sgof}{ O{} O{} }{\getsalinkfree{#2}{sgo}[#1]}
 \newcommand{\sgot}{\getsaname{sgo}}
+
 
