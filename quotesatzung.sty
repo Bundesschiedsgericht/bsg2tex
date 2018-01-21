@@ -118,6 +118,36 @@
     {https://wiki.piratenpartei.de/Bundessatzung\#Abschnitt\_C:\_Schiedsgerichtsordnung}%
 }
 
+\newcommand{\getgobsgurl}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {1}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_1_-_Kammern_und_Senat}
+        {2}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_2_-_Besetzung}
+        {3}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_3_-_Interne_Sitzungen}
+        {4}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_4_-_Anrufung}
+        {5}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_5_-_Eingangsbearbeitung_und_Er.C3.B6ffnung}
+        {6}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_6_-_Ladung_zur_Verhandlung}
+        {7}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_7_-_M.C3.BCndliche_und_fernm.C3.BCndliche_Verhandlung}
+        {8}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_8_-_Urteile_.26_Beschl.C3.BCsse}
+        {9}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_9_-_Dokumentation}
+        {10}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_10_-_Sammlung_aller_Schiedsgerichtsentscheidungen}
+        {11}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsordnung\#.C2.A7_11_-_Inkrafttreten.2C_.C3.84nderung}
+    }%
+    {https://wiki.piratenpartei.de/Bundesschiedsgericht/Geschäftsordnung}%
+}
+
+\newcommand{\getgvpbsgurl}[1]{%
+  \stringcases
+    {#1}%
+    {%
+        {1}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsverteilungsplan}
+        {2}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsverteilungsplan}
+        {3}{https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsverteilungsplan}
+    }%
+    {https://wiki.piratenpartei.de/Bundesschiedsgericht/Gesch\%C3\%A4ftsverteilungsplan}%
+}
+
 \newcommand{\getsaurl}[2]{%
   \stringcases
     {#1}%
@@ -125,6 +155,8 @@
         {bs}{\getbsurl{#2}}
         {fo}{\getfourl{#2}}
         {sgo}{\getsgourl{#2}}
+        {gobsg}{\getgobsgurl{#2}}
+        {gvpbsg}{\getgvpbsgurl{#2}}
     }
     {}%
 }
@@ -132,6 +164,8 @@
 \newcounter{bscount}
 \newcounter{focount}
 \newcounter{sgocount}
+\newcounter{gobsgcount}
+\newcounter{gvpbsgcount}
 
 \newcommand{\getsaname}[1]{%
   \stringcases
@@ -140,6 +174,8 @@
         {bs}{\stepcounter{bscount}\ifthenelse{\equal{\value{bscount}}{1}}{Bundessatzung (BS)}{BS}}
         {fo}{\stepcounter{focount}\ifthenelse{\equal{\value{focount}}{1}}{Finanzordnung (FO)}{FO}}
         {sgo}{\stepcounter{sgocount}\ifthenelse{\equal{\value{sgocount}}{1}}{Schiedsgerichtsordnung (SGO)}{SGO}}
+        {gobsg}{\stepcounter{gobsgcount}\ifthenelse{\equal{\value{gobsgcount}}{1}}{Geschäftsordnung des Bundesschiedsgerichts (GO/BSG)}{GO/BSG}}
+        {gvpbsg}{\stepcounter{gvpbsgcount}\ifthenelse{\equal{\value{gvpbsgcount}}{1}}{Geschäftsverteilungsplan des Bundesschiedsgerichts (GVP/BSG)}{GVP/BSG}}
     }
     {}%
 }
@@ -161,5 +197,13 @@
 \DeclareDocumentCommand{\sgo}{ O{} O{} O{} O{} O{} O{} }{\getsalink{sgo}[#1][#2][#3][#4][#5][#6]}
 \DeclareDocumentCommand{\sgof}{ O{} O{} }{\getsalinkfree{#2}{sgo}[#1]}
 \newcommand{\sgot}{\getsaname{sgo}}
+
+\DeclareDocumentCommand{\gobsg}{ O{} O{} O{} O{} O{} O{} }{\getsalink{gobsg}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\gobsgf}{ O{} O{} }{\getsalinkfree{#2}{gobsg}[#1]}
+\newcommand{\gobsgt}{\getsaname{gobsg}}
+
+\DeclareDocumentCommand{\gvpbsg}{ O{} O{} O{} O{} O{} O{} }{\getsalink{gvpbsg}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\gvpbsgf}{ O{} O{} }{\getsalinkfree{#2}{gvpbsg}[#1]}
+\newcommand{\gvpbsgt}{\getsaname{gvpbsg}}
 
 
