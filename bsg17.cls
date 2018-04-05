@@ -108,7 +108,7 @@ wegen: \= \textbf{#1} \\
 }
 
 \newcommand{\senat}{\newcommand{\thegericht}{das Bundesschiedsgericht}}
-\newcommand{\kammer}[1]{\newcommand{\thegericht}{das Bundesschiedsgericht, #1.~Kammer,}}
+\newcommand{\kammer}[1]{\newcommand{\thegericht}{das Bundesschiedsgericht, #1.~Kammer}}
 \newcommand{\verhandlung}[1]{\newcommand{\thewie}{%
 \newcommand{\thedatum}{#1}%
 aufgrund der fernmündlichen Verhandlung vom #1}}
