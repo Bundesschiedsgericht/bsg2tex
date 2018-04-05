@@ -135,8 +135,7 @@ aufgrund der schriftlichen Vorträge im Umlauf am #1}}
 \DeclareDocumentCommand{\ME}{ g }{\richter{den Richter}{Michael Ebner}{#1}{\richterformat}}
 \DeclareDocumentCommand{\ML}{ g }{\richter{den Richter}{Mario Longobardi}{#1}{\richterformat}}
 \DeclareDocumentCommand{\GE}{ g }{\richter{den Richter}{Gregory Engels}{#1}{\richterformat}}
-\DeclareDocumentCommand{\BE}{ g }{\richter{den Ersatzrichter}{Bertram Eckert}{#1}{\richterformat}}
-\DeclareDocumentCommand{\JG}{ g }{\richter{die Ersatzrichterin}{Judith Geier}{#1}{\richterformat}}
+\DeclareDocumentCommand{\BE}{ g }{\richter{den Richter}{Bertram Eckert}{#1}{\richterformat}}
 \DeclareDocumentCommand{\besetzung}{ m m g g g g }{%
 \newcommand{\thebesetzung}{%
 durch
@@ -350,14 +349,13 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 \newcommand{\RichterTabelle}{%
 \setlength{\tabcolsep}{0mm}%
 \centering\textcolor{white}{%
-\begin{tabular}{ccccccc}%
-\parbox[t]{27.0mm}{\centering Stefan\\Thöni\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
-\parbox[t]{27.0mm}{\centering Michael\\Ebner\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Georg\\v. Boroviczeny\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Gregory\\Engels\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Holger\\van Lengerich\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Judith\\Geier\\[0.2em]\footnotesize{Ersatzrichterin}}&%
-\parbox[t]{27.0mm}{\centering Bertram\\Eckert\\[0.2em]\footnotesize{Ersatzrichter}}%
+\begin{tabular}{cccccc}%
+\parbox[t]{32.0mm}{\centering Stefan\\Thöni\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
+\parbox[t]{32.0mm}{\centering Michael\\Ebner\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{32.0mm}{\centering Georg\\v. Boroviczeny\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{32.0mm}{\centering Gregory\\Engels\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{32.0mm}{\centering Holger\\van Lengerich\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{32.0mm}{\centering Bertram\\Eckert\\[0.2em]\footnotesize{Richter}}%
 \end{tabular}}}%
 
 \RequirePackage{xcolor}
