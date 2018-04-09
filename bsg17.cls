@@ -133,7 +133,6 @@ aufgrund der schriftlichen Vorträge im Umlauf am #1}}
 \DeclareDocumentCommand{\HvL}{ g }{\richter{den Richter}{Holger van Lengerich}{#1}{\richterformat}}
 \DeclareDocumentCommand{\GvB}{ g }{\richter{den Richter}{Georg von Boroviczeny}{#1}{\richterformat}}
 \DeclareDocumentCommand{\ME}{ g }{\richter{den Richter}{Michael Ebner}{#1}{\richterformat}}
-\DeclareDocumentCommand{\ML}{ g }{\richter{den Richter}{Mario Longobardi}{#1}{\richterformat}}
 \DeclareDocumentCommand{\GE}{ g }{\richter{den Richter}{Gregory Engels}{#1}{\richterformat}}
 \DeclareDocumentCommand{\BE}{ g }{\richter{den Richter}{Bertram Eckert}{#1}{\richterformat}}
 \DeclareDocumentCommand{\besetzung}{ m m g g g g }{%
