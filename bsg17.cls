@@ -100,10 +100,10 @@
 
 \newcommand{\wegen}[2]{%
 \newcommand{\thewegen}%
-{\abstand\begin{nstabbing}
-wegen: \= \textbf{#1} \\
-\ifthenelse{\equal{#2}{}}{}{\> hier: #2}
-\end{nstabbing}
+{\abstand\noindent\begin{tabular}{@{}p{.05\textwidth}p{.925\textwidth}@{}}
+wegen: & \textbf{#1} \\
+\ifthenelse{\equal{#2}{}}{}{& hier: #2 \\}
+\end{tabular} \\
 }
 }
 
@@ -208,8 +208,7 @@ sowie
 \thebeiladung
 }
 \abstand
-\thewegen
-\abstand
+\thewegen \abstand \\
 hat \thegericht,\abstand \\
 \thewie, \abstand \\
 \thebesetzung
@@ -242,8 +241,7 @@ sowie
 \thebeiladung
 }
 \abstand
-\thewegen
-\abstand
+\thewegen \abstand \\
 hat \thegericht,\abstand \\
 \thewie, \abstand \\
 \thebesetzung
@@ -276,8 +274,7 @@ sowie
 \end{nscenter}
 \thebeiladung
 }
-\thewegen
-\abstand
+\thewegen \abstand \\
 hat \thegericht,\abstand \\
 \thewie, \abstand \\
 \thebesetzung
