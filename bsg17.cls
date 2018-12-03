@@ -338,7 +338,7 @@ hat \thegericht,\abstand \\
 		\begin{tabular}{l}
 		Piratenpartei Deutschland \\
 		Bundesschiedsgericht \\
-		Plugstraße 9a \\
+		Pflugstraße 9a \\
 		10115 Berlin \\
 		\end{tabular}
 	}}
