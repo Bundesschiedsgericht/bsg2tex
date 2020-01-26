@@ -46,6 +46,11 @@
 \newcounter{ggcount}
 \newcounter{partgcount}
 \newcounter{vwgocount}
+\newcounter{bgbcount}
+\newcounter{zpocount}
+\newcounter{drigcount}
+\newcounter{euwgcount}
+\newcounter{bwahlgcount}
 
 \newcommand{\getlawartpar}[1]{%
   \stringcases
@@ -62,9 +67,11 @@
         {gg}{\stepcounter{ggcount}\ifthenelse{\equal{\value{ggcount}}{1}}{Grundgesetz (GG)}{GG}}
         {partg}{\stepcounter{partgcount}\ifthenelse{\equal{\value{partgcount}}{1}}{Parteiengesetz (PartG)}{PartG}}
         {vwgo}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Verwaltungsgerichtsordnung (VwGO)}{VwGO}}
-	{bgb}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Bürgerliches Gesetzbuch (BGB)}{BGB}}
-	{zpo}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Zivilprozessordnung (ZPO)}{ZPO}}
-	{drig}{\stepcounter{vwgocount}\ifthenelse{\equal{\value{vwgocount}}{1}}{Deutsches Richtergesetz (DRiG)}{DRiG}}
+				{bgb}{\stepcounter{bgbcount}\ifthenelse{\equal{\value{bgbcount}}{1}}{Bürgerliches Gesetzbuch (BGB)}{BGB}}
+				{zpo}{\stepcounter{zpocount}\ifthenelse{\equal{\value{zpocount}}{1}}{Zivilprozessordnung (ZPO)}{ZPO}}
+				{drig}{\stepcounter{drigcount}\ifthenelse{\equal{\value{drigcount}}{1}}{Deutsches Richtergesetz (DRiG)}{DRiG}}
+				{euwg}{\stepcounter{euwgcount}\ifthenelse{\equal{\value{euwgcount}}{1}}{Europawahlgesetz (EuWG)}{EuWG}}
+				{bwahlg}{\stepcounter{bwahlgcount}\ifthenelse{\equal{\value{bwahlgcount}}{1}}{Bundeswahlgesetz (BWahlG)}{BWahlG}}
     }
     {}%
 }
@@ -101,5 +108,12 @@
 \DeclareDocumentCommand{\drigf}{ O{} O{} }{\getlawlinkfree{#2}{drig}[#1]}
 \newcommand{\drigt}{\getlawname{drig}}
 
+\DeclareDocumentCommand{\euwg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{euwg}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\euwgf}{ O{} O{} }{\getlawlinkfree{#2}{euwg}[#1]}
+\newcommand{\euwgt}{\getlawname{euwg}}
+
+\DeclareDocumentCommand{\bwahlg}{ O{} O{} O{} O{} O{} O{} }{\getlawlink{bwahlg}[#1][#2][#3][#4][#5][#6]}
+\DeclareDocumentCommand{\bwahlgf}{ O{} O{} }{\getlawlinkfree{#2}{bwahlg}[#1]}
+\newcommand{\bwahlgt}{\getlawname{bwahlg}}
 
 

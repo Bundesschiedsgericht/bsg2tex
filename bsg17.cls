@@ -112,15 +112,20 @@ wegen: & \textbf{#1} \\
 \newcommand{\verhandlung}[1]{\newcommand{\thewie}{%
 \newcommand{\thedatum}{#1}%
 aufgrund der fernmündlichen Verhandlung vom #1}}
-\newcommand{\verhandlungRL}[1]{\newcommand{\thewie}{%
+\newcommand{\verhandlungRL}[2]{\newcommand{\thewie}{%
 \newcommand{\thedatum}{#1}%
-aufgrund der mündlichen Verhandlung vom #1}}
-\newcommand{\schriftlich}[1]{\newcommand{\thewie}{%
+aufgrund der mündlichen Verhandlung vom #1 in #2}}
+\newcommand{\schriftlich}{\newcommand{\aufgrund}{aufgrund der schriftlichen Vorträge }
+\newcommand{\aktenlage}{\newcommand{\aufgrund}{aufgrund der Aktenlage }
+\newcommand{\beratung}[1]{\newcommand{\thewie}{%
 \newcommand{\thedatum}{#1}%
-aufgrund der schriftlichen Vorträge in Beratung am #1}}
+\aufgrund{}in fernmündlicher Beratung am #1}}
 \newcommand{\umlauf}[1]{\newcommand{\thewie}{%
 \newcommand{\thedatum}{#1}%
-aufgrund der schriftlichen Vorträge im Umlauf am #1}}
+\aufgrund{}im Umlauf am #1}}
+\newcommand{\praesenz}[2]{\newcommand{\thewie}{%
+\newcommand{\thedatum}{#1}%
+\aufgrund{}in der Präsenzsitzung vom #1 in #2}}
 
 \newcommand{\richterformat}{durch}
 \DeclareDocumentCommand{\richter}{ m m g g }{%
@@ -134,8 +139,9 @@ aufgrund der schriftlichen Vorträge im Umlauf am #1}}
 \DeclareDocumentCommand{\GvB}{ g }{\richter{den Richter}{Georg von Boroviczeny}{#1}{\richterformat}}
 \DeclareDocumentCommand{\ME}{ g }{\richter{den Richter}{Michael Ebner}{#1}{\richterformat}}
 \DeclareDocumentCommand{\GE}{ g }{\richter{den Richter}{Gregory Engels}{#1}{\richterformat}}
-\DeclareDocumentCommand{\MG}{ g }{\richter{den Richter}{Melano Gärtner}{#1}{\richterformat}}
-\DeclareDocumentCommand{\MP}{ g }{\richter{den Ersatzrichter}{Mirko Pauli}{#1}{\richterformat}}
+\DeclareDocumentCommand{\HS}{ g }{\richter{den Richter}{Hartmut Semken}{#1}{\richterformat}}
+\DeclareDocumentCommand{\LM}{ g }{\richter{den Richter}{Lutz Martiny Semken}{#1}{\richterformat}}
+\DeclareDocumentCommand{\MB}{ g }{\richter{den Richter}{Markus Barnehoff}{#1}{\richterformat}}
 \DeclareDocumentCommand{\besetzung}{ m m g g g g }{%
 \newcommand{\thebesetzung}{%
 durch
@@ -372,12 +378,13 @@ Das Bundesschiedsgericht der Piratenpartei Deutschland wird vertreten durch:%
 \centering\textcolor{white}{%
 \begin{tabular}{ccccccc}%
 \parbox[t]{27.0mm}{\centering Stefan\\Thöni\\[0.2em]\footnotesize{Vorsitzender~Richter}}&%
-\parbox[t]{27.0mm}{\centering Michael\\Ebner\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Georg\\v. Boroviczeny\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Gregory\\Engels\\[0.2em]\footnotesize{Richter}}&%
-\parbox[t]{27.0mm}{\centering Holger\\van Lengerich\\[0.2em]\footnotesize{Richter}}%
-\parbox[t]{27.0mm}{\centering Melano\\Gärtner\\[0.2em]\footnotesize{Richter}}%
-\parbox[t]{27.0mm}{\centering Mirko\\Pauli\\[0.2em]\footnotesize{Ersatzrichter}}%
+\parbox[t]{24.0mm}{\centering Michael\\Ebner\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{24.0mm}{\centering Georg\\v. Boroviczeny\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{24.0mm}{\centering Gregory\\Engels\\[0.2em]\footnotesize{Richter}}&%
+\parbox[t]{24.0mm}{\centering Holger\\van Lengerich\\[0.2em]\footnotesize{Richter}}%
+\parbox[t]{24.0mm}{\centering Hartmut\\Semken\\[0.2em]\footnotesize{Richter}}%
+\parbox[t]{24.0mm}{\centering Lutz\\Martiny\\[0.2em]\footnotesize{Richter}}%
+\parbox[t]{24.0mm}{\centering Markus\\Barenhoff\\[0.2em]\footnotesize{Richter}}%
 \end{tabular}}}%
 
 \RequirePackage{xcolor}
